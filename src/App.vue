@@ -5,26 +5,22 @@
       .nav-main
         Fragment(v-for='(nav,i) in navigation' ,:key='i' ,:nav='nav')
     .view
-      .content
-        .input-wrapper
-          input(type="text" ,placeholder='Serch...' )
-        Card(v-for='(news,i) in post.articles' ,:key='i' ,:news='news' )
-        router-view
+      router-view
 
 </template>
 
 <script>
-import Card from './components/Card'
-import axios from 'axios'
-import {mapState} from 'vuex'
-import Fragment from './components/fragment/fragment'
+import axios from 'axios';
+import {mapState} from 'vuex';
+import Fragment from './components/fragment/fragment';
+import News from './components/News'
 
 
 export default {
   name: 'App',
   components:{
-    Card,
     Fragment
+
   },
   computed:{
       ...mapState(['post','navigation'])
@@ -88,22 +84,22 @@ html,body
     overflow: auto
     
 
-    .content
-      max-width: 930px
-      width: 70%
-      display: flex
-      flex-wrap: wrap
-      margin-top: 10rem
+    // .content
+    //   max-width: 930px
+    //   width: 70%
+    //   display: flex
+    //   flex-wrap: wrap
+    //   margin-top: 10rem
 
-    .input-wrapper
-      +size(100%,10%)
+    // .input-wrapper
+    //   +size(100%,10%)
     
-      input
-        +size(60%,2rem)
-        // margin-bottom: 10rem
-        outline: none
-        border-radius: 10px
-        background-color: 
-        padding-left: 10px
-        border: none
+    //   input
+    //     +size(60%,2rem)
+    //     // margin-bottom: 10rem
+    //     outline: none
+    //     border-radius: 10px
+    //     background-color: 
+    //     padding-left: 10px
+    //     border: none
 </style>

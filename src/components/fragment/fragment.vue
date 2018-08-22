@@ -1,5 +1,5 @@
 <template lang='pug'>
-    router-link.nav-wrapper(tag='div',:to='nav')
+    router-link.nav-wrapper(tag='div',to="/news")
         h1 {{nav}}
 </template>
 
