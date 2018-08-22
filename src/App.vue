@@ -3,23 +3,24 @@
     .nav-sidebar
       .logo-main
       .nav-main
-        Fragment(v-for='(nav,i) in navigation' ,:key='i' ,:nav='nav')
+        router-link.nav-item(to="/news") News
+        router-link.nav-item(to="/zshare") zshare
+        router-link.nav-item(to="/hahow") hahow
     .view
-      router-view
+      .view-wrapper
+        router-view
 
 </template>
 
 <script>
 import axios from 'axios';
 import {mapState} from 'vuex';
-import Fragment from './components/fragment/fragment';
 import News from './components/News'
 
 
 export default {
   name: 'App',
   components:{
-    Fragment
 
   },
   computed:{
@@ -75,15 +76,38 @@ html,body
     .nav-main
       color: #eee
 
+      .nav-item
+        width: 100%
+        height: 6rem
+        background-color: #010101
+        border-bottom: 1px solid #eee
+        box-sizing: border-box
+        display: flex
+        justify-content: center
+        align-items: center
+        cursor: pointer
+        transition: 0.5s
+        font-size: 2rem
+        text-decoration: none
+        color: #eee
+        &:hover
+            background-color: #fff
+            color: #010101
+      .router-link-active
+        color: #eee
+        background-color: #1161ef
+
   .view
     flex: 1
     display: flex
-    flex-wrap: wrap
     justify-content: center
     background-color: #f2f2f2
     overflow: auto
-    
 
+    .view-wrapper
+      display: flex
+      flex-direction: column
+      align-items: center
     // .content
     //   max-width: 930px
     //   width: 70%

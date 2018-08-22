@@ -30,7 +30,7 @@ export default {
     +size(100%)
     .content
         max-width: 930px
-        width: 70%
+        width: 100%
         display: flex
         flex-wrap: wrap
         margin-top: 10rem
