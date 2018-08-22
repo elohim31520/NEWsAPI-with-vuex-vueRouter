@@ -26,8 +26,10 @@ export default {
 @mixin size($w ,$h:$w)
     width: $w
     height: $h
+
 .article-wrapper
     +size(100%)
+    
     .content
         max-width: 930px
         width: 100%

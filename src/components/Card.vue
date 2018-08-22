@@ -5,8 +5,9 @@
         .new-desc
             h3 {{news.title}}
             //- p {{news.source.name}}
-            p {{news.publishedAt}}
-    
+            p {{news.short_description}}
+            p {{news.publishedAt || news.updated_at}}
+
 </template>
 
 <script>
@@ -18,7 +19,7 @@ export default {
             if(this.news.urlToImage){
                 return {'background-image':  `url("${this.news.urlToImage}")`}
             }
-            
+            return {'background-image': 'linear-gradient(120deg,black,rgba(50,50,50,0.5))'}
         },
 
         toThePage(){
@@ -44,7 +45,8 @@ export default {
     height: $h
 
 .card-news
-    +size(270px,305px)
+    +size(270px,380px)
+    // min-height: 305px
     box-sizing: border-box
     margin: 1rem
     cursor: pointer
@@ -53,6 +55,13 @@ export default {
     background-color: #fff
     margin-bottom: 5rem
     position: relative
+    border-radius: 5px
+    overflow: hidden
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    
+
     &:hover
         transform: translateY(-5px)
 
@@ -61,7 +70,7 @@ export default {
         position: absolute
 
     .news-img
-        +size(100%,40%)
+        flex: 0 0 40%
         background-size: 100%
         transition: 0.5s 
         &:hover
@@ -70,5 +79,10 @@ export default {
 
     .new-desc
         padding: 1rem
+        flex: 1
 
+        h3
+            margin: 0
+
+        
 </style>
