@@ -6,6 +6,8 @@
         router-link.nav-item(to="/news") News
         router-link.nav-item(to="/zshare") Zshare
         router-link.nav-item(to="/hahow") Hahow
+        router-link.nav-item(to="/bitcoin") Bitcoin
+        router-link.nav-item(to="/apple") Apple
     .view
       .view-wrapper    
         router-view
