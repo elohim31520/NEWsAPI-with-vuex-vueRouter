@@ -8,6 +8,7 @@
         router-link.nav-item(to="/hahow") Hahow
         router-link.nav-item(to="/bitcoin") Bitcoin
         router-link.nav-item(to="/apple") Apple
+        router-link.nav-item(to="/tech") Tech
     .view
       .view-wrapper    
         router-view

@@ -5,6 +5,7 @@ import Zshare from '../components/Zshare'
 import Hahow from '../components/Hahow'
 import Bitcoin from '../components/Bitcoin'
 import Apple from '../components/Apple'
+import Tech from '../components/Tech'
 
 Vue.use(Router)
 
@@ -38,6 +39,11 @@ export default new Router({
       path: '/apple',
       name: 'Apple',
       component: Apple,
+    },
+    {
+      path: '/tech',
+      name: 'Tech',
+      component: Tech,
     },
   ]
 })

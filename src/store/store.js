@@ -14,7 +14,8 @@ const store = new Vuex.Store({
         hahowData:{},
         zshareData: {},
         bitcoin_data: {},
-        apple_data:{}
+        apple_data:{},
+        tech_data: {}
     },
     mutations: {
         setPost(state,val){
@@ -31,29 +32,36 @@ const store = new Vuex.Store({
         },
         set_apple_data(state,val){
             state.apple_data = val;
+        },
+        set_tech_data(state,val){
+            state.tech_data = val;
         }
     },
     actions: {
         loadData(context){
             axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${MYKEY}`).then((res)=>{
                 context.commit("setPost", res.data);
-            });
+            }).catch(err=> console.log(err));
 
             axios.get("http://awiclass.monoame.com/api/command.php?type=get&name=hahowdata").then((res)=>{
                 context.commit("setHahowData", res.data);
-            });
+            }).catch(err=> console.log(err));
             
             axios.get("https://awiclass.monoame.com/api/command.php?type=get&name=post").then((res)=>{
                 context.commit("setZshareData", res.data);
-            });
+            }).catch(err=> console.log(err));
 
             axios.get(`https://newsapi.org/v2/everything?q=bitcoin&sortBy=publishedAt&apiKey=${MYKEY}`).then((res)=>{
                 context.commit("setbitcoin_data", res.data);
-            });
+            }).catch(err=> console.log(err));
 
             axios.get(`https://newsapi.org/v2/everything?q=apple&from=2018-08-22&to=2018-08-22&sortBy=popularity&apiKey=${MYKEY}`).then((res)=>{
                 context.commit("set_apple_data", res.data);
-            });
+            }).catch(err=> console.log(err));
+
+            axios.get(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${MYKEY}`).then((res)=>{
+                context.commit("set_tech_data", res.data);
+            }).catch(err=> console.log(err));
         }
     }  
 });
