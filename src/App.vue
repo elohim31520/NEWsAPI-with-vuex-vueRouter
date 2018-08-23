@@ -4,10 +4,10 @@
       .logo-main
       .nav-main
         router-link.nav-item(to="/news") News
-        router-link.nav-item(to="/zshare") zshare
-        router-link.nav-item(to="/hahow") hahow
+        router-link.nav-item(to="/zshare") Zshare
+        router-link.nav-item(to="/hahow") Hahow
     .view
-      .view-wrapper
+      .view-wrapper    
         router-view
 
 </template>
@@ -38,6 +38,9 @@ export default {
 </script>
 
 <style lang='sass'>
+*
+    font-family: '微軟正黑體'
+
 @mixin size($w ,$h:$w)
     width: $w
     height: $h
@@ -98,6 +101,7 @@ html,body
         background-color: #1161ef
 
   .view
+    width: 100%
     flex: 1
     display: flex
     justify-content: center
@@ -105,25 +109,5 @@ html,body
     overflow: auto
 
     .view-wrapper
-      display: flex
-      flex-direction: column
-      align-items: center
-    // .content
-    //   max-width: 930px
-    //   width: 70%
-    //   display: flex
-    //   flex-wrap: wrap
-    //   margin-top: 10rem
-
-    // .input-wrapper
-    //   +size(100%,10%)
-    
-    //   input
-    //     +size(60%,2rem)
-    //     // margin-bottom: 10rem
-    //     outline: none
-    //     border-radius: 10px
-    //     background-color: 
-    //     padding-left: 10px
-    //     border: none
+      max-width: 930px
 </style>

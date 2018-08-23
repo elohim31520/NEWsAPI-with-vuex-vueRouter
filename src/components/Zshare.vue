@@ -1,7 +1,7 @@
 <template lang='pug'>
     .zshare-wrapper
         .header
-        .content-wrapper
+        .content
             SerchLine
             Card(v-for='(news,i) in zshareData' ,:key='news.id' ,:news='news' )
 
@@ -30,18 +30,20 @@ export default {
 
 .zshare-wrapper
     +size(100%)
-    display: flex
-    flex-direction: column
-    align-items: center
+    
+    
+    
 
     .header
-        +size(100%,305px)
+        +size(100%,400px)
         background-color: #010101
+        background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/52504c55246443.597c79a51c9fc.jpg")
+        background-size: cover
+        margin-top: 3rem
 
-    .content-wrapper
-        max-width: 930px
+    .content
         width: 100%
         display: flex
         flex-wrap: wrap
-        justify-content: center
+        margin-top: 10rem
 </style>

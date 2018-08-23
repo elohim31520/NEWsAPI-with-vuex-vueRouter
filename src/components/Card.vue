@@ -6,7 +6,7 @@
             h3 {{news.title}}
             //- p {{news.source.name}}
             p {{news.short_description}}
-            p {{news.publishedAt || news.updated_at}}
+            p.time {{news.publishedAt || news.updated_at}}
 
 </template>
 
@@ -19,7 +19,10 @@ export default {
             if(this.news.urlToImage){
                 return {'background-image':  `url("${this.news.urlToImage}")`}
             }
-            return {'background-image': 'linear-gradient(120deg,black,rgba(50,50,50,0.5))'}
+            return {
+                'background-image': 'linear-gradient(-45deg,#FFE18D 10%,#FFE18D 10%,#FFDA71 10%,#FFDA71 40%,#FFE18D 40%,#FFE18D 60%,#FFDA71 60%,#FFDA71 90%,#FFE18D 90%,#FFE18D 100%',
+                'background-size': '46px 46px'
+            }
         },
 
         toThePage(){
@@ -44,6 +47,9 @@ export default {
     width: $w
     height: $h
 
+$color_yellow: #FFE18D
+$color_dark_yellow: #FFDA71
+
 .card-news
     +size(270px,380px)
     // min-height: 305px
@@ -60,7 +66,8 @@ export default {
     display: flex
     flex-direction: column
     justify-content: space-around
-    
+    box-shadow: 0 0 10px rgba(black,0.2)
+
 
     &:hover
         transform: translateY(-5px)
@@ -72,7 +79,8 @@ export default {
     .news-img
         flex: 0 0 40%
         background-size: 100%
-        transition: 0.5s 
+        transition: 0.5s
+        background-size: cover
         &:hover
             background-size: 115% auto
             transition: all 0.5s ease-in-out 
@@ -83,6 +91,9 @@ export default {
 
         h3
             margin: 0
+        
+        .time
+            font-size: 10px
 
         
 </style>

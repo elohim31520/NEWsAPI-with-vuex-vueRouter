@@ -31,7 +31,6 @@ export default {
     +size(100%)
     
     .content
-        max-width: 930px
         width: 100%
         display: flex
         flex-wrap: wrap
