@@ -5,19 +5,40 @@ import MYKEY from '../.env'
 
 Vue.use(Vuex)
 
-// http://awiclass.monoame.com/api/command.php?type=get&name=hahowdata hahowAPI
+
 
 const store = new Vuex.Store({
     state: {
-        navigation: ['News','Zshare','Hahow'],
         post:{},
         hahowData:{},
         zshareData: {},
         bitcoin_data: {},
         apple_data:{},
-        tech_data: {}
+        tech_data: {},
+        searched_data:[],
+        not_found_page: false
     },
     mutations: {
+        mutate_filter_post(state,keyword){
+            let temp_post = [];
+
+            // 跑title
+            state[keyword[1]].articles.forEach(article=>{
+                let flag = false
+                
+                if(article.title.toLowerCase().indexOf(keyword[0].toLowerCase())!=-1){
+                    flag = true 
+                    if(flag){
+                        temp_post.push(article)
+                    }
+                }    
+            });   
+
+            state.searched_data = temp_post ;
+            // console.log(state.searched_data);
+
+        },
+
         setPost(state,val){
             state.post = val;
         },

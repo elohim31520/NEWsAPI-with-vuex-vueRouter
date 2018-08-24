@@ -5,16 +5,16 @@
         .new-desc
             h3 {{news.title}}
             //- p {{news.source.name}}
-            p {{news.short_description}}
+            p.txt {{news.description}}
             p.time {{news.publishedAt || news.updated_at}}
 
 </template>
 
 <script>
-import {mapState} from 'vuex'
+// import {mapState, mapMutations} from 'vuex'
 export default {
     computed:{
-        ...mapState(['post']),
+        // ...mapState(['post']),
         bgImg(){
             if(this.news.urlToImage){
                 return {'background-image':  `url("${this.news.urlToImage}")`}
@@ -38,6 +38,9 @@ export default {
             default: ''
 
         }
+    },
+    methods:{
+        // ...mapMutations(['filtered_post']),
     }
 }
 </script>
@@ -92,8 +95,16 @@ $color_dark_yellow: #FFDA71
         h3
             margin: 0
         
+        .txt
+            font-size: 16px
+            overflow : hidden
+            text-overflow: ellipsis
+            display: -webkit-box
+            -webkit-line-clamp: 2
+            -webkit-box-orient: vertical
+
         .time
-            font-size: 10px
+            font-size: 12px
 
         
 </style>

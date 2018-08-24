@@ -2,8 +2,9 @@
     .zshare-wrapper
         .header
         .content
-            SerchLine
+            SerchLine(@relay='trigger_to_filter(arguments[0])')
             Card(v-for='(news,i) in zshareData' ,:key='news.id' ,:news='news' )
+
 
 </template>
 
@@ -13,6 +14,7 @@ import {mapState} from 'vuex';
 import SerchLine from './fragment/SearchLine';
 
 export default {
+
     computed:{
         ...mapState(['zshareData']),
     },
@@ -20,6 +22,7 @@ export default {
         Card,
         SerchLine
     },
+    
 }
 </script>
 

@@ -8,6 +8,9 @@
 # install dependencies
 npm install
 
+申請個人的news API-key
+https://newsapi.org/
+
 # serve with hot reload at localhost:8080
 npm run dev
 
